@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .story {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .story img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .story-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .story-date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .story-author {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .story-content {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stories-container"></div>
+
+    <script>
+        // Simulated data from Google Sheets
+        const stories = [
+            {
+                "title": "The Enchanted Forest",
+                "date": "2023-05-15",
+                "author": "Alice Wonder",
+                "content": `Deep in the heart of the mystical woods, a tale of magic unfolds. <br><br>
+                            The ancient trees whispered secrets to those who would listen, their leaves shimmering with an otherworldly glow. 
+                            As our protagonist, young Luna, stepped into a moonlit clearing, she felt the forest come alive around her.<br><br>
+                            Fireflies danced in intricate patterns, spelling out riddles in the air. Luna's eyes widened as she realized she could understand their glowing messages.<br><br>
+                            With each step deeper into the Enchanted Forest, Luna discovered more of its wonders and its dangers. But she knew that somewhere within its depths lay the key to saving her village from the eternal winter that threatened to consume it.<br><br>
+                            As the first rays of dawn broke through the canopy, Luna found herself face to face with the Forest Guardian, a majestic creature of bark and leaves. It was time for her ultimate test, one that would determine the fate of both the forest and her home.`,
+                "mainImage": "https://example.com/enchanted-forest-main.jpg",
+            },
+            {
+                "title": "The Cosmic Voyager",
+                "date": "2023-05-20",
+                "author": "Neil Stardust",
+                "content": `Embarking on a journey through the stars, Captain Zara faces her greatest challenge. <br><br>
+                            The Cosmic Voyager, Earth's most advanced starship, hummed with energy as it approached the swirling event horizon of a black hole. 
+                            Captain Zara stood on the bridge, her eyes fixed on the mesmerizing spiral of light and darkness before them.<br><br>
+                            Their mission: to retrieve a probe that had ventured too close to the black hole's gravitational pull. The data it contained could revolutionize our understanding of the universe.<br><br>
+                            As they edged closer, time itself began to warp around them. The ship's AI warned of the immense forces threatening to tear them apart. But Zara knew the risks when she accepted this mission.<br><br>
+                            With a deep breath, she gave the order. "Engage tachyon shields. We're going in." The Cosmic Voyager plunged into the unknown, carrying with it the hopes and dreams of humanity.`,
+                "mainImage": "https://example.com/cosmic-voyager-main.jpg",
+            }
+        ];
+
+        function displayStories() {
+            const container = document.getElementById('stories-container');
+            stories.forEach(story => {
+                const storyElement = document.createElement('div');
+                storyElement.classList.add('story');
+
+                storyElement.innerHTML = `
+                    <div class="story-title">${story.title}</div>
+                    <div class="story-date">${story.date}</div>
+                    <div class="story-author">By ${story.author}</div>
+                    <div class="story-content">${story.content}</div>
+                    <img src="${story.mainImage}" alt="${story.title}">
+                `;
+
+                container.appendChild(storyElement);
+            });
+        }
+
+        displayStories();
+    </script>
+
+</body>
+  </html>
